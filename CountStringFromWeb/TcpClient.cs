@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
+﻿using System.IO;
 using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CountStringFromWeb
 {

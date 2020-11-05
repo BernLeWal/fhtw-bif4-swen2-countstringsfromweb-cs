@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Net.Security;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -11,6 +10,7 @@ namespace CountStringFromWeb
         public string WebsiteDomain { get; }
         public int Port { get; }
         public string _content = null;
+
         public string Content
         {
             get
