@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountStringFromWeb", "CountStringFromWeb\CountStringFromWeb.csproj", "{947F114F-CE30-40C2-A36E-7CDBA1CD1263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountStringFromWeb", "CountStringFromWeb\CountStringFromWeb.csproj", "{947F114F-CE30-40C2-A36E-7CDBA1CD1263}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountStringFromWeb.Tests", "CountStringFromWeb.Tests\CountStringFromWeb.Tests.csproj", "{728B7048-0E03-421E-9268-3D517CA41889}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CountStringFromWeb.Tests", "CountStringFromWeb.Tests\CountStringFromWeb.Tests.csproj", "{728B7048-0E03-421E-9268-3D517CA41889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountStringFromWeb.WebClient", "CountStringFromWeb.WebClient\CountStringFromWeb.WebClient.csproj", "{A204A690-4114-4F30-A6C8-AB1331CE73EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TcpClient", "TcpClient", "{967C54B3-7F3B-4403-A0F6-6CD21035FA73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient", "WebClient", "{550DC804-0E09-4243-A831-55D064A7B7FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountStringFromWeb.WPF", "CountStringFromWeb.WPF\CountStringFromWeb.WPF.csproj", "{C6A1621C-0A34-4F79-A233-3D64B7E82785}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebClient.UI", "WebClient.UI", "{D013FD88-EFBE-4552-9311-54DB2E7217D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +31,23 @@ Global
 		{728B7048-0E03-421E-9268-3D517CA41889}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{728B7048-0E03-421E-9268-3D517CA41889}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{728B7048-0E03-421E-9268-3D517CA41889}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A204A690-4114-4F30-A6C8-AB1331CE73EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A204A690-4114-4F30-A6C8-AB1331CE73EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A204A690-4114-4F30-A6C8-AB1331CE73EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A204A690-4114-4F30-A6C8-AB1331CE73EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A1621C-0A34-4F79-A233-3D64B7E82785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A1621C-0A34-4F79-A233-3D64B7E82785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A1621C-0A34-4F79-A233-3D64B7E82785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A1621C-0A34-4F79-A233-3D64B7E82785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{947F114F-CE30-40C2-A36E-7CDBA1CD1263} = {967C54B3-7F3B-4403-A0F6-6CD21035FA73}
+		{728B7048-0E03-421E-9268-3D517CA41889} = {967C54B3-7F3B-4403-A0F6-6CD21035FA73}
+		{A204A690-4114-4F30-A6C8-AB1331CE73EB} = {550DC804-0E09-4243-A831-55D064A7B7FA}
+		{C6A1621C-0A34-4F79-A233-3D64B7E82785} = {D013FD88-EFBE-4552-9311-54DB2E7217D0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC5EFC71-7365-4765-9CD7-7663B384F8C9}
