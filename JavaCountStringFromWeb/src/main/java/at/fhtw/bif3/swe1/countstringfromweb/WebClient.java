@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class WebClient {
     public static void main(String[] args) throws IOException {
-        Pattern.compile("ticker-story-headline.*?a href.*?>(.*?)<\\/a>", Pattern.CASE_INSENSITIVE )
+        Pattern.compile("ticker-story-headline.*?a href.*?>(.*?)<\\/a>", Pattern.CASE_INSENSITIVE | Pattern.DOTALL )
             .matcher( new BufferedReader( new InputStreamReader( new URL("https://sport.orf.at").openStream(), StandardCharsets.UTF_8 ))
                             .lines()
                             .collect(Collectors.joining("\n")) )

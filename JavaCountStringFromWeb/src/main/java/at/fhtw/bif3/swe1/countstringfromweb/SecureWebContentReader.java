@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.*;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -104,7 +102,7 @@ public class SecureWebContentReader implements SecureWebContentReaderInterface {
     @Override
     public List<String> getContentStringsFromRegex(String pattern, int groupNr)  {
         // tested with https://regex101.com/
-        Pattern regex = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE );
+        Pattern regex = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE | Pattern.DOTALL );
         final String httpsContent = getHttpsContent();
         Matcher matcher = regex.matcher(httpsContent);
         ArrayList<String> results = new ArrayList<>();
