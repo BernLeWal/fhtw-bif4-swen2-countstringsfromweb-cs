@@ -16,7 +16,7 @@ public class WebClient {
                             .lines()
                             .collect(Collectors.joining("\n")) )
             .results()
-            .map(m -> m.group(1).toString().trim())
+            .map(m -> m.group(1).trim())
             .forEach(System.out::println);         // or t -> System.out.println(t)
 
         //  .collect(Collectors.joining("\n"))  ... returns as String
