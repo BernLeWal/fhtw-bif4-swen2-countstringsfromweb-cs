@@ -10,8 +10,8 @@ import static org.mockito.Mockito.when;
 public class TestHelper {
     public static final String URL = "www.example.com";
 
-    public static TcpClientInterface generateSimpleTcpClientMock() {
-        TcpClientInterface tcpClient = mock(TcpClientInterface.class);
+    public static MySocketInterface generateSimpleTcpClientMock() {
+        MySocketInterface tcpClient = mock(MySocketInterface.class);
 
         ByteArrayInputStream readStream;
         readStream = new ByteArrayInputStream("""
@@ -22,8 +22,8 @@ public class TestHelper {
         var writeStream = new ByteArrayOutputStream();
 
         // mock the TCP client methods
-        when(tcpClient.getStreamRead()).thenReturn(readStream);
-        when(tcpClient.getStreamWrite()).thenReturn(writeStream);
+        when(tcpClient.getInputStream()).thenReturn(readStream);
+        when(tcpClient.getOutputStream()).thenReturn(writeStream);
         return tcpClient;
     }
 

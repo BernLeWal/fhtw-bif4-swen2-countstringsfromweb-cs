@@ -1,6 +1,7 @@
 package at.fhtw.bif3.swe1.countstringfromweb;
 
-import javax.net.ssl.SSLSocket;
+import lombok.SneakyThrows;
+
 import javax.net.ssl.SSLSocketFactory;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,7 +9,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-public class TcpClient implements TcpClientInterface {
+public class MySocket implements MySocketInterface {
     private Socket socket = null;
 
     @Override
@@ -37,20 +38,20 @@ public class TcpClient implements TcpClientInterface {
 
 
     @Override
-    public InputStream getStreamRead() {
+    public InputStream getInputStream() {
         try {
             return (socket !=null) ? socket.getInputStream() : null;
         } catch (IOException e) {
-            return null;
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public OutputStream getStreamWrite() {
+    public OutputStream getOutputStream() {
         try {
             return (socket !=null) ? socket.getOutputStream() : null;
         } catch (IOException e) {
-            return null;
+            throw new RuntimeException(e);
         }
     }
 }
