@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.*;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -17,22 +15,22 @@ public class SecureWebContentReader implements SecureWebContentReaderInterface {
     @Getter private final int port;
 
     @Setter private String content;
-    private final TcpClientInterface tcpClient;
+    private final MySocketInterface mySocket;
 
-    public SecureWebContentReader(TcpClientInterface tcpClient, String websiteDomain, int port) {
-        this.tcpClient = tcpClient;
+    public SecureWebContentReader(MySocketInterface mySocket, String websiteDomain, int port) {
+        this.mySocket = mySocket;
         this.websiteDomain = websiteDomain;
         this.port = port;
     }
 
-    public SecureWebContentReader(TcpClientInterface tcpClient, String websiteDomain) {
-        this(tcpClient, websiteDomain, 443);
+    public SecureWebContentReader(MySocketInterface mySocket, String websiteDomain) {
+        this(mySocket, websiteDomain, 443);
     }
 
     public SecureWebContentReader(String websiteDomain, int port) {
         this.websiteDomain = websiteDomain;
         this.port = port;
-        this.tcpClient = new TcpClient();
+        this.mySocket = new MySocket();
     }
 
     public SecureWebContentReader(String websiteDomain) {
@@ -51,10 +49,10 @@ public class SecureWebContentReader implements SecureWebContentReaderInterface {
             return content;
         }
 
-        tcpClient.connectSsl(websiteDomain, port);
+        mySocket.connectSsl(websiteDomain, port);
         try (
-            BufferedReader streamReader = new BufferedReader(new InputStreamReader(tcpClient.getStreamRead()));
-            BufferedWriter streamWriter = new BufferedWriter(new OutputStreamWriter(tcpClient.getStreamWrite())) )
+                BufferedReader streamReader = new BufferedReader(new InputStreamReader(mySocket.getInputStream()));
+                BufferedWriter streamWriter = new BufferedWriter(new OutputStreamWriter(mySocket.getOutputStream())) )
         {
             writeHttpGetRequest(streamWriter, websiteDomain);
             int contentLength = readHttpHeader(streamReader);
@@ -104,7 +102,7 @@ public class SecureWebContentReader implements SecureWebContentReaderInterface {
     @Override
     public List<String> getContentStringsFromRegex(String pattern, int groupNr)  {
         // tested with https://regex101.com/
-        Pattern regex = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE );
+        Pattern regex = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE | Pattern.DOTALL );
         final String httpsContent = getHttpsContent();
         Matcher matcher = regex.matcher(httpsContent);
         ArrayList<String> results = new ArrayList<>();
