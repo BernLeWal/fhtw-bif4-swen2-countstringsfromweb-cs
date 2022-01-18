@@ -46,7 +46,7 @@ namespace CountStringFromWeb.WPF
 
             var webClient = new System.Net.WebClient();
             string content = webClient.DownloadString("https://sport.orf.at");
-            Thread.Sleep(30_000);
+            //Thread.Sleep(30_000);
             var findStoriesRegex = new Regex("ticker-story-headline.*?a href.*?>(.*?)<\\/a>",
                 RegexOptions.IgnoreCase | RegexOptions.Singleline);
             var matches = findStoriesRegex.Matches(content);
